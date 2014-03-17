@@ -94,6 +94,8 @@ void GazeboRosCameraUtils::Load(sensors::SensorPtr _parent,
 
   // overwrite camera suffix
   // example usage in gazebo_ros_multicamera
+  sleep(5); //add sleep to force GazeboRosCameraUtils::LoadThread to run BEFORE the following instruction
+            //and cause the issue in https://github.com/ros-simulation/gazebo_ros_pkgs/issues/161
   this->camera_name_ += _camera_name_suffix;
 }
 
